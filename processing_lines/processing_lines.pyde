@@ -90,15 +90,18 @@ def draw():
     
     background(0)
 
+    stroke(100)
     for x in range(0,width, width/8):
-        line(x, 0, x, 2)
-        line(x, height, x, height-2)
+        # line(x, 0, x, 2)
+        # line(x, height, x, height-2)
+        line(x, 0, x, height)
         
     for y in range(0,height, height/8):
-        line(0, y, 2, y)
-        line(width, y, width-2, y)
-
+        # line(0, y, 2, y)
+        # line(width, y, width-2, y)
+        line(0, y, width, y)
     
+    stroke(255)
     for segment in lineArray:
         segment.segmentDraw()        
         

@@ -17,6 +17,8 @@ def setup():
     print "Mouse click to set line segment points"
     print "Mouse drag to draw"
     print "Press 'd' to delete the last line"
+    print "Press 'o' to see the line coordinates printed out"
+    print "Press 'p' to see the lines printed out according to and 8x8 scale"
     print "Created by Andrew Donato"
     print ""
     text("Created by Andrew Donato", width*0.01, height*0.98)

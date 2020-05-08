@@ -6,7 +6,7 @@ firstPoint = int()
 
 def setup():
     # size (1280, 750)
-    size (500, 500)
+    size (600, 600)
     background(0)
     stroke(255)
     strokeWeight(1)
@@ -60,11 +60,43 @@ def keyPressed():
         if key == 'd' or key == 'D' :
             print key
             del lineArray[len(lineArray)-1]
-    
+        
+        if key == 'o' or key == 'O' :
+            print ""
+            for each in lineArray:
+                print "line(%s, %s, %s, %s)" %(each.x1, each.y1, each.x2, each.y2)
+        
+        if key == 'p' or key == 'P' :
+            print ""
+            for each in lineArray:
+                lineCoordinates = [each.x1, each.y1, each.x2, each.y2]
+                for coordinate in lineCoordinates:
+                    if coordinate < 1:
+                        coordinate = 1
+                fraction = height/8       
+                
+                x1 = (each.x1 + fraction/2)/fraction
+                y1 = (each.y1 + fraction/2)/fraction
+                x2 = (each.x2 + fraction/2)/fraction
+                y2 = (each.y2 + fraction/2)/fraction
+
+                print "line(%s*tileWall/8, %s*tileWall/8, %s*tileWall/8, %s*tileWall/8)" %(x1, y1, x2, y2)
+            
+            
 def draw():
     global lineArray
     
     background(0)
+
+    for x in range(0,width, width/8):
+        line(x, 0, x, 2)
+        line(x, height, x, height-2)
+        
+    for y in range(0,height, height/8):
+        line(0, y, 2, y)
+        line(width, y, width-2, y)
+
+    
     for segment in lineArray:
         segment.segmentDraw()        
         
